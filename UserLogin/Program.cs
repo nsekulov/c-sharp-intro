@@ -10,6 +10,8 @@ namespace UserLogin
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(UserData.TestUser);
+            Console.WriteLine(LoginValidation.currentUserRole);
         }
     }
 }
