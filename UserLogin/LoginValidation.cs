@@ -11,11 +11,14 @@ namespace UserLogin
         private string username;
         private string password;
         private string errorMessage;
+        public delegate void ActionOnError(string errorMsg);
+        private ActionOnError actionOnError;
 
-        public LoginValidation(string username, string password)
+        public LoginValidation(string username, string password, ActionOnError actionOnError)
         {
             this.username = username;
             this.password = password;
+            this.actionOnError = actionOnError;
         }
 
         static public UserRoles currentUserRole
@@ -44,6 +47,7 @@ namespace UserLogin
             if (errorMessage != null)
             {
                 currentUserRole = UserRoles.ANONYMOUS;
+                actionOnError(errorMessage);
                 return false;
             }
 
@@ -52,6 +56,7 @@ namespace UserLogin
             if (user == null)
             {
                 errorMessage = "Невалидни име и/или парола.";
+                actionOnError(errorMessage);
                 currentUserRole = UserRoles.ANONYMOUS;
                 return false;
             }

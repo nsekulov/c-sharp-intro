@@ -15,12 +15,25 @@ namespace UserLogin
             string username = Console.ReadLine();
             Console.Write("Pass:");
             string password = Console.ReadLine();
-            LoginValidation validator = new LoginValidation(username, password);
+            LoginValidation validator = new LoginValidation(username, password, handleLoginFail);
             if (validator.ValidateUserInput(ref newUser))
             {
                 Console.WriteLine(newUser);
-                Console.WriteLine(LoginValidation.currentUserRole);
+                switch (LoginValidation.currentUserRole)
+                {
+                    case UserRoles.STUDENT:
+                        Console.WriteLine("Logged in as a Student!");
+                        break;
+                    case UserRoles.ADMIN:
+                        Console.WriteLine("Logged in as an Admin!");
+                        break;
+                }
             }
+        }
+
+        static void handleLoginFail(string errorMsg)
+        {
+            Console.WriteLine("Login failed: " + errorMsg);
         }
     }
 }
