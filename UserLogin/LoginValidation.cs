@@ -27,24 +27,35 @@ namespace UserLogin
         {
             if (username.Equals(string.Empty)) {
                 errorMessage = "Не е посочено потребителско име";
-                return false;
             }
             if (password.Equals(string.Empty))
             {
                 errorMessage = "Не е посочена парола";
-                return false;
             }
             if (username.Length <= 5)
             {
                 errorMessage = "Името е твърде кратко.";
-                return false;
             }
             if (password.Length <= 5)
             {
                 errorMessage = "Паролата е твърде кратка.";
+            }
+
+            if (errorMessage != null)
+            {
+                currentUserRole = UserRoles.ANONYMOUS;
                 return false;
             }
-            user = UserData.TestUser;
+
+            user = UserData.IsUserPassCorrect(username, password);
+
+            if (user == null)
+            {
+                errorMessage = "Невалидни име и/или парола.";
+                currentUserRole = UserRoles.ANONYMOUS;
+                return false;
+            }
+
             currentUserRole = (UserRoles)user.Role;
             return true;
         }
