@@ -17,18 +17,24 @@ namespace UserLogin
             { get; set;}
         public Int32 Role
             { get; set;}
+        public DateTime CreateTime
+            { get; set;}
+        public DateTime ValidToDate
+            { get; set;}
 
-        public User(string username, string password, string fakNum, int role)
+        public User(string username, string password, string fakNum, int role, DateTime creationDate, DateTime validToDate)
         {
             Username = username;
             Password = password;
             FakNum = fakNum;
             Role = role;
+            CreateTime = creationDate;
+            ValidToDate = validToDate;
         }
 
         public override string ToString()
         {
-            return "User: " + Username + " with UID: " + FakNum;
+            return "User: " + Username + " with UID: " + FakNum + " deactivation date: " + ValidToDate;
         }
     }
 }

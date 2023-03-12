@@ -31,15 +31,15 @@ namespace UserLogin
             if (username.Equals(string.Empty)) {
                 errorMessage = "Не е посочено потребителско име";
             }
-            if (password.Equals(string.Empty))
+            else if (password.Equals(string.Empty))
             {
                 errorMessage = "Не е посочена парола";
             }
-            if (username.Length <= 5)
+            else if (username.Length <= 5)
             {
                 errorMessage = "Името е твърде кратко.";
             }
-            if (password.Length <= 5)
+            else if (password.Length <= 5)
             {
                 errorMessage = "Паролата е твърде кратка.";
             }
