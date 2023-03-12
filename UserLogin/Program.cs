@@ -10,8 +10,17 @@ namespace UserLogin
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(UserData.TestUser);
-            Console.WriteLine(LoginValidation.currentUserRole);
+            User newUser = null;
+            Console.Write("User:");
+            string username = Console.ReadLine();
+            Console.Write("Pass:");
+            string password = Console.ReadLine();
+            LoginValidation validator = new LoginValidation(username, password);
+            if (validator.ValidateUserInput(ref newUser))
+            {
+                Console.WriteLine(newUser);
+                Console.WriteLine(LoginValidation.currentUserRole);
+            }
         }
     }
 }

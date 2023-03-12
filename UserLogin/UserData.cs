@@ -21,19 +21,7 @@ namespace UserLogin
         {
             while (_testUser == null)
             {
-                Console.Write("User:");
-                String username = Console.ReadLine();
-                Console.Write("Pass:");
-                String password = Console.ReadLine();
-                LoginValidation validator = new LoginValidation();
-                if (validator.ValidateUserInput(username, password))
-                {
-                    _testUser = new User(username, password, "121220076", 0);
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input");
-                }
+                _testUser = new User("Username", "pass", "1212", 0);
             }
         }
     }
