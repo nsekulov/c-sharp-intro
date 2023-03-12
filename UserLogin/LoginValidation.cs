@@ -26,6 +26,11 @@ namespace UserLogin
             get;
             private set;
         }
+        static public string currentUserUsername
+        {
+            get;
+            private set;
+        }
         public bool ValidateUserInput(ref User user)
         {
             if (username.Equals(string.Empty)) {
@@ -58,10 +63,13 @@ namespace UserLogin
                 errorMessage = "Невалидни име и/или парола.";
                 actionOnError(errorMessage);
                 currentUserRole = UserRoles.ANONYMOUS;
+                currentUserUsername = null;
                 return false;
             }
 
             currentUserRole = (UserRoles)user.Role;
+            currentUserUsername = user.Username;
+            Logger.LogActivity("[USER] User: " + user.Username + " logged in!");
             return true;
         }
     }

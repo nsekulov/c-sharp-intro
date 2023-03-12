@@ -32,12 +32,15 @@ namespace UserLogin
         static void adminNavigationView()
         {
             int option = -1;
-            while (option < 0 || option > 2)
+            while (option < 0 || option > 5)
             {
                 Console.WriteLine("Изберете опция: ");
                 Console.WriteLine("0. Изход");
                 Console.WriteLine("1. Промяна на роля на потребител");
                 Console.WriteLine("2. Промяна на крайна дата на активност на потребител");
+                Console.WriteLine("3. Списък на потребители");
+                Console.WriteLine("4. Преглед на лог файл");
+                Console.WriteLine("5. Преглед на текушен лог");
                 option = Convert.ToInt32(Console.ReadLine());
             }
 
@@ -55,9 +58,15 @@ namespace UserLogin
                 case 2:
                     Console.Write("Username: ");
                     username = Console.ReadLine();
-                    Console.Write("Date (MM/DD/YR): ");
+                    Console.Write("Date (DD/MM/YR): ");
                     DateTime date = Convert.ToDateTime(Console.ReadLine());
                     UserData.SetUserActiveUntill(username, date);
+                    break;
+                case 4:
+                    Logger.ReadLogActivity();
+                    break;
+                case 5:
+                    Logger.DisplayLogActivity();
                     break;
             }
             adminNavigationView();

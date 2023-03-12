@@ -8,8 +8,8 @@ namespace UserLogin
 {
     static internal class UserData
     {
-        static private User[] _testUsers = new User[3];
-        static public User[] TestUsers
+        static private List<User> _testUsers = new List<User>();
+        static public List<User>TestUsers
         {
             get {
                 ResetTestUserData();
@@ -19,13 +19,13 @@ namespace UserLogin
         }
         static public void ResetTestUserData()
         {
-            while (_testUsers[0] == null)
+            while (_testUsers.Count == 0)
             {
                 DateTime currentDate = DateTime.Now;
                 DateTime validToDate = DateTime.MaxValue;
-                _testUsers[0] = new User("nsekulovAD", "randompassadmin", "__invalid__", 1, currentDate, validToDate);
-                _testUsers[1] = new User("nsekulov", "randompass1", "121220076", 4, currentDate, validToDate);
-                _testUsers[2] = new User("randstudent", "randompass2", "121220077", 4, currentDate, validToDate);
+                _testUsers.Add(new User("nsekulovAD", "randompassadmin", "__invalid__", 1, currentDate, validToDate));
+                _testUsers.Add(new User("nsekulov", "randompass1", "121220076", 4, currentDate, validToDate));
+                _testUsers.Add(new User("randstudent", "randompass2", "121220077", 4, currentDate, validToDate));
             }
         }
 
@@ -53,6 +53,7 @@ namespace UserLogin
             User user = GetTestUserByName(username);
             if (user != null) {
                 user.ValidToDate = newValidToDate;
+                Logger.LogActivity("[USER] Changed active untill dato for user" + user.Username + " to: " + newValidToDate);
                 return user.ValidToDate;
             }
             return DateTime.MinValue;
@@ -63,6 +64,7 @@ namespace UserLogin
             if (user != null)
             {
                 user.Role = (int) newRole;
+                Logger.LogActivity("[USER] Changed role for user" + user.Username + " to: " + newRole);
                 return (UserRoles) user.Role;
             }
             return UserRoles.ANONYMOUS;
