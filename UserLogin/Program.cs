@@ -61,10 +61,24 @@ namespace UserLogin
                     UserData.SetUserActiveUntill(username, date);
                     break;
                 case 5:
-                    Logger.ReadLogActivity();
+                    IEnumerable<string> currentLogActs = Logger.ReadLogActivity();
+                    StringBuilder stringBuilder = new StringBuilder();
+                    foreach (string line in currentLogActs)
+                    {
+                        stringBuilder.AppendLine(line);
+                    }
+                    Console.WriteLine(stringBuilder.ToString());
                     break;
                 case 6:
-                    Logger.DisplayLogActivity();
+                    Console.Write("Filter: ");
+                    string filter = Console.ReadLine();
+                    IEnumerable<string> currentActs = Logger.GetCurrentSessionActivities(filter);
+                    StringBuilder sb = new StringBuilder();
+                    foreach (string line in currentActs)
+                    {
+                        sb.AppendLine(line);
+                    }
+                    Console.WriteLine(sb.ToString());
                     break;
             }
             adminNavigationView();

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UserLogin
 {
-    static class Logger
+    static public class Logger
     {
         static private List<string> currentSessionActivities = new List<string>();
 
@@ -21,14 +21,13 @@ namespace UserLogin
             WriteLogActivity(activityLine);
         }
 
-        static public void DisplayLogActivity()
+        static public IEnumerable<string> GetCurrentSessionActivities(string filter)
         {
-            StringBuilder sb = new StringBuilder();
-            foreach (string line in currentSessionActivities)
-            {
-                sb.AppendLine(line);
-            }
-            Console.WriteLine(sb.ToString());
+            List<string> filteredActivities = (
+                from activity in currentSessionActivities
+                where activity.Contains(filter)
+                select activity).ToList();
+            return currentSessionActivities;
         }
 
         static private void WriteLogActivity(string activity)
@@ -38,14 +37,16 @@ namespace UserLogin
             logWriter.Close();
         }
 
-        static public void ReadLogActivity()
+        static public IEnumerable<string> ReadLogActivity()
         {
             StreamReader logReader = new StreamReader("test.txt");
+            List<string> logActivities = new List<string>();
             while (!logReader.EndOfStream)
             {
-                Console.WriteLine(logReader.ReadLine());
+                logActivities.Add(logReader.ReadLine());
             }
             logReader.Close();
+            return logActivities;
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace UserLogin
 {
 
-    enum ActivitiesList
+    public enum ActivitiesList
     {
         Exit,
         UserAuth,
@@ -18,7 +18,7 @@ namespace UserLogin
         ListSessionLog
     }
 
-    internal class Activity
+    public class Activity
     {
         public ActivitiesList Id
         {

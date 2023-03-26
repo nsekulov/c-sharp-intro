@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UserLogin
 {
-    static internal class UserData
+    static public class UserData
     {
         static private List<User> _testUsers = new List<User>();
         static public List<User>TestUsers
@@ -39,14 +39,11 @@ namespace UserLogin
         }
 
         static public User IsUserPassCorrect(string username, string password) {
-            foreach (User user in TestUsers)
-            {
-                if (user.Username == username && user.Password == password)
-                {
-                    return user;
-                }
-            }
-            return null;
+            User AuthUser = (
+            from user in TestUsers
+            where user.Username == username && user.Password == password
+            select user).First();
+            return AuthUser;
         }
 
         static public DateTime SetUserActiveUntill(string username, DateTime newValidToDate) {

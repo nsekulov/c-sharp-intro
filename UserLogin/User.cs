@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace UserLogin
 {
-    internal class User
+    public class User
     {
         public String Username
             { get; set; }
