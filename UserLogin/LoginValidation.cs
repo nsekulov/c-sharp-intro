@@ -69,7 +69,7 @@ namespace UserLogin
 
             currentUserRole = (UserRoles)user.Role;
             currentUserUsername = user.Username;
-            Logger.LogActivity("[USER] User: " + user.Username + " logged in!");
+            Logger.LogActivity(new Activity("[USER] User: " + user.Username + " logged in!", ActivitiesList.UserAuth));
             return true;
         }
     }

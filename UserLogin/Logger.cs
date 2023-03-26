@@ -11,12 +11,12 @@ namespace UserLogin
     {
         static private List<string> currentSessionActivities = new List<string>();
 
-        static public void LogActivity(string activity)
+        static public void LogActivity(Activity activity)
         {
             string activityLine = DateTime.Now + ";"
             + LoginValidation.currentUserUsername + ";"
             + LoginValidation.currentUserRole + ";"
-            + activity;
+            + activity.Description;
             currentSessionActivities.Add(activityLine);
             WriteLogActivity(activityLine);
         }

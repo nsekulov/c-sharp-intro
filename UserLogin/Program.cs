@@ -32,15 +32,13 @@ namespace UserLogin
         static void adminNavigationView()
         {
             int option = -1;
-            while (option < 0 || option > 5)
+            while (option < 0 || option > ActivityData.Activitites.Count)
             {
                 Console.WriteLine("Изберете опция: ");
-                Console.WriteLine("0. Изход");
-                Console.WriteLine("1. Промяна на роля на потребител");
-                Console.WriteLine("2. Промяна на крайна дата на активност на потребител");
-                Console.WriteLine("3. Списък на потребители");
-                Console.WriteLine("4. Преглед на лог файл");
-                Console.WriteLine("5. Преглед на текушен лог");
+                foreach (Activity activity in ActivityData.Activitites)
+                {
+                    Console.WriteLine((int) activity.Id + ". " + activity.Description);
+                }
                 option = Convert.ToInt32(Console.ReadLine());
             }
 
@@ -48,24 +46,24 @@ namespace UserLogin
             switch (option) {
                 case 0:
                     return;
-                case 1:
+                case 2:
                     Console.Write("Username: ");
                     username = Console.ReadLine();
                     Console.Write("Role: ");
                     int role = Convert.ToInt32(Console.ReadLine());
                     UserData.AssignUserRole(username, (UserRoles) role);
                     break;
-                case 2:
+                case 3:
                     Console.Write("Username: ");
                     username = Console.ReadLine();
                     Console.Write("Date (DD/MM/YR): ");
                     DateTime date = Convert.ToDateTime(Console.ReadLine());
                     UserData.SetUserActiveUntill(username, date);
                     break;
-                case 4:
+                case 5:
                     Logger.ReadLogActivity();
                     break;
-                case 5:
+                case 6:
                     Logger.DisplayLogActivity();
                     break;
             }

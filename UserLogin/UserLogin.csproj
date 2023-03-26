@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activity.cs" />
+    <Compile Include="ActivityData.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="UserRoles.cs" />
     <Compile Include="LoginValidation.cs" />

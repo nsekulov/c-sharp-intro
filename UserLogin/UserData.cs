@@ -53,7 +53,7 @@ namespace UserLogin
             User user = GetTestUserByName(username);
             if (user != null) {
                 user.ValidToDate = newValidToDate;
-                Logger.LogActivity("[USER] Changed active untill dato for user" + user.Username + " to: " + newValidToDate);
+                Logger.LogActivity(new Activity("[USER] Changed active untill date for user" + user.Username + " to: " + newValidToDate, ActivitiesList.UserChangeExpiration));
                 return user.ValidToDate;
             }
             return DateTime.MinValue;
@@ -64,7 +64,7 @@ namespace UserLogin
             if (user != null)
             {
                 user.Role = (int) newRole;
-                Logger.LogActivity("[USER] Changed role for user" + user.Username + " to: " + newRole);
+                Logger.LogActivity(new Activity("[USER] Changed role for user" + user.Username + " to: " + newRole, ActivitiesList.UserChangeRole));
                 return (UserRoles) user.Role;
             }
             return UserRoles.ANONYMOUS;
