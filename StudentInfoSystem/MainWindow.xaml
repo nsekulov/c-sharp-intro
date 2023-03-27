@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentInfoSystem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="621" Width="933">
+    <Grid x:Name="InfoGrid">
+        <Label Content="Име:" Margin="10,37,727,536" Width="196" Height="32"/>
+        <Label Content="Презиме:" Margin="10,101,727,472" Width="196" Height="32"/>
+        <Label Content="Фамилия:" Margin="10,165,727,408" Width="196" Height="32"/>
+        <TextBox TextWrapping="Wrap" Margin="200 ,32, 500, 532" Width="196" Height="32"/>
+        <TextBox TextWrapping="Wrap" Margin="200 ,96, 500, 468" Width="196" Height="32"/>
+        <TextBox TextWrapping="Wrap" Margin="200 ,160, 500, 404" Width="196" Height="32"/>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="10,10,424,355"/>
 
+        <Label Content="Факултет:" Margin="10,300,727,272" Width="196" Height="32"/>
+        <Label Content="Специалност:" Margin="10,350,727,223" Width="196" Height="32"/>
+        <Label Content="Фак. Номер:" Margin="10,400,727,173" Width="196" Height="32"/>
+        <TextBox Name="StudentFaculty" TextWrapping="Wrap" Margin="218,300,520,272" Width="196" Height="32"/>
+        <TextBox Name="StudentSpecialty" TextWrapping="Wrap" Margin="218,350,520,223" Width="196" Height="32"/>
+        <TextBox Name="StudentFacNumber" TextWrapping="Wrap" Margin="218,400,520,173" Width="196" Height="32"/>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="10,290,424,150" Height="160"/>
+        <Button x:Name="ClearFields" Content="Clear Fields" HorizontalAlignment="Left" Margin="825,260,0,0" VerticalAlignment="Top" Click="ClearFields_Click"/>
+        <Button x:Name="GetStudent1" Content="Auto Fill" HorizontalAlignment="Left" Margin="825,290,0,0" VerticalAlignment="Top" Click="AutoFill_Click"/>
+        <Button x:Name="DisableAllFields" Content="DisableTest" HorizontalAlignment="Left" Margin="825,320,0,0" VerticalAlignment="Top" Click="DisableAll_Click"/>
+        <Button x:Name="EnableAllFields" Content="EnableTest" HorizontalAlignment="Left" Margin="825,350,0,0" VerticalAlignment="Top" Click="EnableAll_Click"/>
     </Grid>
 </Window>

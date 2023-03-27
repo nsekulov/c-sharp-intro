@@ -24,5 +24,66 @@ namespace StudentInfoSystem
         {
             InitializeComponent();
         }
+
+        private void ClearFields_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in InfoGrid.Children)
+            {
+                if (item is TextBox)
+                {
+                    ((TextBox)item).Text = "";
+                }
+            }
+
+        }
+
+        private void AutoFill_Click(object sender, RoutedEventArgs e)
+        {
+            Student student = StudentData.students.First();
+            foreach (var item in InfoGrid.Children)
+            {
+                if (item is TextBox)
+                {
+                    TextBox curr_item = ((TextBox)item);
+                    switch (curr_item.Name)
+                    {
+                        case "StudentFaculty":
+                            curr_item.Text = student.Faculty;
+                            break;
+                        case "StudentSpecialty":
+                            curr_item.Text = student.Specialty;
+                            break;
+                        case "StudentFacNumber":
+                            curr_item.Text = student.Faculty_ID;
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+            }
+        }
+
+        private void DisableAll_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in InfoGrid.Children)
+            {
+                if (item is TextBox)
+                {
+                    ((TextBox)item).IsEnabled = false;
+                }
+            }
+        }
+
+        private void EnableAll_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in InfoGrid.Children)
+            {
+                if (item is TextBox)
+                {
+                    ((TextBox)item).IsEnabled = true;
+                }
+            }
+        }
     }
 }

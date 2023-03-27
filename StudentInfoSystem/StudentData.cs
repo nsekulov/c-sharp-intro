@@ -20,7 +20,7 @@ namespace StudentInfoSystem
 
         static private void ResetTestStudentData()
         {
-            while (_students.Count > 0)
+            while (_students.Count == 0)
             {
                 _students.Add(new Student("Nikola", "Jordanov", "Sekulov", "FKST", "KSI", "Bakalaver", "Bluska tam", "121220***", "3", "9 potok", "46b"));
             }
