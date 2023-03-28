@@ -27,7 +27,7 @@ namespace StudentInfoSystem
 
         private void ClearFields_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var item in InfoGrid.Children)
+            foreach (var item in StudentInfoGrid.Children)
             {
                 if (item is TextBox)
                 {
@@ -40,7 +40,7 @@ namespace StudentInfoSystem
         private void AutoFill_Click(object sender, RoutedEventArgs e)
         {
             Student student = StudentData.students.First();
-            foreach (var item in InfoGrid.Children)
+            foreach (var item in StudentInfoGrid.Children)
             {
                 if (item is TextBox)
                 {
@@ -82,6 +82,54 @@ namespace StudentInfoSystem
                 if (item is TextBox)
                 {
                     ((TextBox)item).IsEnabled = true;
+                }
+            }
+        }
+
+        private void LogIn_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in InfoGrid.Children)
+            {
+                if (item is GroupBox)
+                { 
+                    ((GroupBox)item).Visibility = Visibility.Visible;
+                }
+                if (item is Button)
+                {
+                    Button btn = (Button)item;
+                    switch (btn.Name)
+                    {
+                        case "LogOut":
+                           ((Button)item).Visibility = Visibility.Visible;
+                            break;
+                        case "LogIn":
+                            ((Button)item).Visibility = Visibility.Hidden;
+                            break;
+                    }
+                }
+            }
+        }
+
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in InfoGrid.Children)
+            {
+                if (item is GroupBox)
+                {
+                    ((GroupBox)item).Visibility = Visibility.Hidden;
+                }
+                if (item is Button)
+                {
+                    Button btn = (Button)item;
+                    switch (btn.Name)
+                    {
+                        case "LogOut":
+                            ((Button)item).Visibility = Visibility.Hidden;
+                            break;
+                        case "LogIn":
+                            ((Button)item).Visibility = Visibility.Visible;
+                            break;
+                    }
                 }
             }
         }
