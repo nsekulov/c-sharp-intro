@@ -9,6 +9,7 @@ namespace UserLogin
 {
     public class User
     {
+        public int UserId { get; set; }
         public String Username
             { get; set; }
         public String Password

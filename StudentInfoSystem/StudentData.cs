@@ -23,7 +23,31 @@ namespace StudentInfoSystem
             while (_students.Count == 0)
             {
                 _students.Add(new Student("Nikola", "Jordanov", "Sekulov", "FKST", "KSI", "Bakalaver", "Bluska tam", "121220***", "3", "9 potok", "46b"));
+                _students.Add(new Student("Nikola", "Boss", "asdasd", "FKST", "KSI", "Bakalaver", "Deistwa", "121220***", "3", "9 potok", "46b"));
             }
+            if (TestStudentsIfEmpty())
+            {
+                CopyTestStudents();
+            }
+        }
+        private static bool TestStudentsIfEmpty()
+        {
+            StudentInfoContext context = new StudentInfoContext();
+            IEnumerable<Student> queryStudents = context.Students;
+            int countStudents = queryStudents.Count();
+
+
+            return countStudents <= 0 ? true : false;
+        }
+
+        private static void CopyTestStudents()
+        {
+            StudentInfoContext context = new StudentInfoContext();
+            foreach (Student st in _students)
+            {
+                context.Students.Add(st);
+            }
+            context.SaveChanges();
         }
     }
 }

@@ -8,13 +8,14 @@ namespace StudentInfoSystem
 {
     internal class Student
     {
+        public int StudentId { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
         public string Faculty { get; set; }
         public string Specialty { get; set; }
         public string Qualification { get; set; }
-        public string Status { get; set; } //TODO: ENUM
+        public string Status { get; set; }
         public string Faculty_ID { get; set; }
         public string Year { get; set; }
         public string Year_Group { get; set; }
@@ -33,6 +34,11 @@ namespace StudentInfoSystem
             Year = year;
             Year_Group = year_Group;
             Group = group;
+        }
+        
+        public Student ()
+        {
+
         }
     }
 }

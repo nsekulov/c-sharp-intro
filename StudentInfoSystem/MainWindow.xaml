@@ -18,14 +18,16 @@
             </Grid>
         </GroupBox>
 
-        <GroupBox Visibility="Hidden" x:Name="StudentInfoGroup" Header="Студент" Margin="10,290,424,150" Height="180" Width="500">
+        <GroupBox Visibility="Hidden" x:Name="StudentInfoGroup" Header="Студент" Margin="10,290,424,150" Height="200" Width="500">
             <Grid x:Name="StudentInfoGrid" Height="160" >
-                <Label Content="Факултет:" Margin="10,10,320,120" Width="196" Height="32"/>
-                <Label Content="Специалност:" Margin="10,50,320,80" Width="196" Height="32"/>
-                <Label Content="Фак. Номер:" Margin="10,90,320,40" Width="196" Height="32"/>
+                <Label Content="Факултет:" Margin="10,10,380,118" Height="32"/>
+                <Label Content="Специалност:" Margin="10,50,380,78" Height="32"/>
+                <Label Content="Фак. Номер:" Margin="10,90,380,38" Height="32"/>
+                <Label Content="Статус: " Margin="10,127,380,1" Height="32"/>
                 <TextBox Name="StudentFaculty" TextWrapping="Wrap" Margin="120,10,172,118" Width="196" Height="32"/>
                 <TextBox Name="StudentSpecialty" TextWrapping="Wrap" Margin="120,50,172,78" Width="196" Height="32"/>
                 <TextBox Name="StudentFacNumber" TextWrapping="Wrap" Margin="120,90,172,38" Width="196" Height="32"/>
+                <ListView Name="StudentStatus" Margin="120,127,172,1" Width="196" Height="32"/>
             </Grid>
         </GroupBox>
         <Button x:Name="ClearFields" Content="Clear Fields" HorizontalAlignment="Left" Margin="825,260,0,0" VerticalAlignment="Top" Click="ClearFields_Click"/>

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace StudentInfoSystem
 {
@@ -20,9 +22,40 @@ namespace StudentInfoSystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<string> StudStatusChoices { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            FillStudStatusChoices();
+        }
+
+        private void FillStudStatusChoices()
+        {
+            StudStatusChoices = new List<string>();
+            using (IDbConnection connection = new
+            SqlConnection(Properties.Settings.Default.DbConnect))
+            {
+                string sqlquery =
+                @"SELECT StatusDescr FROM StudStatus";
+                IDbCommand command = new SqlCommand();
+                command.Connection = connection;
+                connection.Open();
+                command.CommandText = sqlquery;
+                IDataReader reader = command.ExecuteReader();
+                bool notEndOfResult;
+                notEndOfResult = reader.Read();
+                while (notEndOfResult)
+
+                {
+                    string s = reader.GetString(0);
+                    StudStatusChoices.Add(s);
+                    notEndOfResult = reader.Read();
+                }
+            }
+            foreach (string s in StudStatusChoices)
+            {
+                StudentStatus.Items.Add(s);
+            }
         }
 
         private void ClearFields_Click(object sender, RoutedEventArgs e)

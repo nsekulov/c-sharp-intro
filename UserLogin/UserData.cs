@@ -55,16 +55,14 @@ namespace UserLogin
             }
             return DateTime.MinValue;
         }
-        static public UserRoles AssignUserRole(string username, UserRoles newRole)
+        static public UserRoles AssignUserRole(int userid, UserRoles newRole)
         {
-            User user = GetTestUserByName(username);
-            if (user != null)
-            {
-                user.Role = (int) newRole;
-                Logger.LogActivity(new Activity("[USER] Changed role for user" + user.Username + " to: " + newRole, ActivitiesList.UserChangeRole));
-                return (UserRoles) user.Role;
-            }
-            return UserRoles.ANONYMOUS;
+            UserContext context = new UserContext();
+            User usr = (from u in UserData.TestUsers where u.UserId == userid select u).First();
+            usr.Role = (int)newRole;
+            Logger.LogActivity(new Activity("[USER] Changed role for user" + usr.Username + " to: " + newRole, ActivitiesList.UserChangeRole));
+            context.SaveChanges();
+            return (UserRoles) usr.Role;
         }
     }
 }
