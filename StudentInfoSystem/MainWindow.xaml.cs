@@ -66,7 +66,7 @@ namespace StudentInfoSystem
 
         private void DisableAll_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var item in InfoGrid.Children)
+            foreach (var item in StudentInfoGrid.Children)
             {
                 if (item is TextBox)
                 {
@@ -77,7 +77,7 @@ namespace StudentInfoSystem
 
         private void EnableAll_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var item in InfoGrid.Children)
+            foreach (var item in StudentInfoGrid.Children)
             {
                 if (item is TextBox)
                 {

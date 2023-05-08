@@ -7,25 +7,25 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="668" Width="978">
     <Grid x:Name="InfoGrid">
-        <GroupBox Visibility="Hidden" Margin="10,10,424,355">
+        <GroupBox Visibility="Hidden" Margin="10,10,424,355" Height="180" Width="500">
             <Grid>
-                <Label Content="Име:" Margin="10,10,320,120" Width="196" Height="32"/>
-                <Label Content="Презиме:" Margin="10,101,727,472" Width="196" Height="32"/>
-                <Label Content="Фамилия:" Margin="10,165,727,408" Width="196" Height="32"/>
-                <TextBox TextWrapping="Wrap" Margin="200 ,32, 500, 532" Width="196" Height="32"/>
-                <TextBox TextWrapping="Wrap" Margin="200 ,96, 500, 468" Width="196" Height="32"/>
-                <TextBox TextWrapping="Wrap" Margin="200 ,160, 500, 404" Width="196" Height="32"/>
+                <Label Content="Име:" Margin="0,10,452,131" Width="80" Height="32"/>
+                <Label Content="Презиме:" Margin="0,72,408,69" Width="80" Height="32"/>
+                <Label Content="Фамилия:" Margin="0,122,452,19" Width="80" Height="32"/>
+                <TextBox TextWrapping="Wrap" Margin="100,10,188,131" Width="200" Height="32"/>
+                <TextBox TextWrapping="Wrap" Margin="100,72,188,69" Width="200" Height="32"/>
+                <TextBox TextWrapping="Wrap" Margin="100,122,188,19" Width="200" Height="32"/>
             </Grid>
         </GroupBox>
 
-        <GroupBox Visibility="Hidden" x:Name="StudentInfoGroup" Header="Студент" Margin="10,290,424,150" Height="180">
+        <GroupBox Visibility="Hidden" x:Name="StudentInfoGroup" Header="Студент" Margin="10,290,424,150" Height="180" Width="500">
             <Grid x:Name="StudentInfoGrid" Height="160" >
                 <Label Content="Факултет:" Margin="10,10,320,120" Width="196" Height="32"/>
                 <Label Content="Специалност:" Margin="10,50,320,80" Width="196" Height="32"/>
                 <Label Content="Фак. Номер:" Margin="10,90,320,40" Width="196" Height="32"/>
-                <TextBox Name="StudentFaculty" TextWrapping="Wrap" Margin="120,10,216,118" Width="196" Height="32"/>
-                <TextBox Name="StudentSpecialty" TextWrapping="Wrap" Margin="120,50,216,78" Width="196" Height="32"/>
-                <TextBox Name="StudentFacNumber" TextWrapping="Wrap" Margin="120,90,216,38" Width="196" Height="32"/>
+                <TextBox Name="StudentFaculty" TextWrapping="Wrap" Margin="120,10,172,118" Width="196" Height="32"/>
+                <TextBox Name="StudentSpecialty" TextWrapping="Wrap" Margin="120,50,172,78" Width="196" Height="32"/>
+                <TextBox Name="StudentFacNumber" TextWrapping="Wrap" Margin="120,90,172,38" Width="196" Height="32"/>
             </Grid>
         </GroupBox>
         <Button x:Name="ClearFields" Content="Clear Fields" HorizontalAlignment="Left" Margin="825,260,0,0" VerticalAlignment="Top" Click="ClearFields_Click"/>
