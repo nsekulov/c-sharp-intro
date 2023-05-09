@@ -47,11 +47,11 @@ namespace UserLogin
                 case 0:
                     return;
                 case 2:
-                    Console.Write("Username: ");
-                    username = Console.ReadLine();
+                    Console.Write("User id: ");
+                    int user_id = Convert.ToInt32(Console.ReadLine());
                     Console.Write("Role: ");
                     int role = Convert.ToInt32(Console.ReadLine());
-                    UserData.AssignUserRole(username, (UserRoles) role);
+                    UserData.AssignUserRole(user_id, (UserRoles) role);
                     break;
                 case 3:
                     Console.Write("Username: ");

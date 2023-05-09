@@ -15,6 +15,13 @@
         <Label Content="Username:" HorizontalAlignment="Left" Margin="10,410,0,0" VerticalAlignment="Top"/>
         <Label Content="Username:" HorizontalAlignment="Left" Margin="10,463,0,0" VerticalAlignment="Top"/>
         <Button Content="Login" Margin="286,442,366,74" Click="Button_Click" Cursor="Cross"/>
+        <ListBox x:Name="peopleListBox" Width="200" Height="200" Margin="0,0,600,384">
+            <ListBoxItem Content="Mike"/>
+            <ListBoxItem Content="Lisa"/>
+            <ListBoxItem Content="John"/>
+            <ListBoxItem Content="Mary"/>
+        </ListBox>
 
-    </Grid>
+        <Button Width="100" Height="50" Click="Button_Greeting" Margin="205,10,495,524">Greeting</Button>
+        </Grid>
 </Window>

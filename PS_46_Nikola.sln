@@ -5,9 +5,11 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserLogin", "UserLogin\UserLogin.csproj", "{5676B809-BF30-45CF-BFC5-38E589024BB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentInfoSystem", "StudentInfoSystem\StudentInfoSystem.csproj", "{C4352B2F-C2C3-4677-8B67-336FE9A92741}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentInfoSystem", "StudentInfoSystem\StudentInfoSystem.csproj", "{C4352B2F-C2C3-4677-8B67-336FE9A92741}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFhello", "WPFhello\WPFhello.csproj", "{4D6F0D1D-6780-412E-9DE7-A072E80B2BE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFhello", "WPFhello\WPFhello.csproj", "{4D6F0D1D-6780-412E-9DE7-A072E80B2BE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseIt", "ExpenseIt\ExpenseIt.csproj", "{9C9FDC9F-ECF6-4528-814C-0EDCA7AC8CB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{4D6F0D1D-6780-412E-9DE7-A072E80B2BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D6F0D1D-6780-412E-9DE7-A072E80B2BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D6F0D1D-6780-412E-9DE7-A072E80B2BE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C9FDC9F-ECF6-4528-814C-0EDCA7AC8CB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C9FDC9F-ECF6-4528-814C-0EDCA7AC8CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C9FDC9F-ECF6-4528-814C-0EDCA7AC8CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C9FDC9F-ECF6-4528-814C-0EDCA7AC8CB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -24,6 +24,13 @@ namespace WPFhello
         public MainWindow()
         {
             InitializeComponent();
+            ListBoxItem james = new ListBoxItem();
+            james.Content = "James";
+            peopleListBox.Items.Add(james);
+            ListBoxItem david = new ListBoxItem();
+            david.Content = "David";
+            peopleListBox.Items.Add(david);
+            peopleListBox.SelectedItem = james;
         }
 
         void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -38,6 +45,12 @@ namespace WPFhello
             {
                 e.Cancel = true;
             }
+        }
+        private void Button_Greeting(object sender, RoutedEventArgs e)
+        {
+            string greetingMsg;
+            greetingMsg = (peopleListBox.SelectedItem as ListBoxItem).Content.ToString();
+            MessageBox.Show("Hi " + greetingMsg);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -57,7 +70,8 @@ namespace WPFhello
             }
             else
             {
-                MessageBox.Show("Здрасти " + s + "!!! \nТова е твоята първа програма на VisualStudio 2023!");
+                MyMessage myMessage = new MyMessage();
+                myMessage.Show();
             }
         }
 
