@@ -123,20 +123,20 @@ namespace StudentInfoSystem
         {
             foreach (var item in InfoGrid.Children)
             {
-                if (item is GroupBox)
-                { 
-                    ((GroupBox)item).Visibility = Visibility.Visible;
-                }
+                ((GroupBox)item).Visibility = Visibility.Visible;
+            }
+            foreach (var item in debugGrid.Children)
+            {
                 if (item is Button)
                 {
                     Button btn = (Button)item;
                     switch (btn.Name)
                     {
-                        case "LogOut":
-                           ((Button)item).Visibility = Visibility.Visible;
-                            break;
                         case "LogIn":
                             ((Button)item).Visibility = Visibility.Hidden;
+                            break;
+                        default:
+                            ((Button)item).Visibility = Visibility.Visible;
                             break;
                     }
                 }
@@ -147,20 +147,23 @@ namespace StudentInfoSystem
         {
             foreach (var item in InfoGrid.Children)
             {
-                if (item is GroupBox)
+                if (((GroupBox)item).Name != "debugBox")
                 {
                     ((GroupBox)item).Visibility = Visibility.Hidden;
                 }
+            }
+            foreach (var item in debugGrid.Children)
+            {
                 if (item is Button)
                 {
                     Button btn = (Button)item;
                     switch (btn.Name)
                     {
-                        case "LogOut":
-                            ((Button)item).Visibility = Visibility.Hidden;
-                            break;
                         case "LogIn":
                             ((Button)item).Visibility = Visibility.Visible;
+                            break;
+                        default:
+                            ((Button)item).Visibility = Visibility.Hidden;
                             break;
                     }
                 }

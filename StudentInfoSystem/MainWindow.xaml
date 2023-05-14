@@ -30,14 +30,15 @@
                 <ListBox Name="StudentStatus" Margin="120,127,172,1" Width="196" Height="32"/>
             </Grid>
         </GroupBox>
-        <GroupBox>
-            <Grid>
-                <Button x:Name="ClearFields" Content="Clear Fields" HorizontalAlignment="Left" Margin="825,260,0,0" VerticalAlignment="Top" Click="ClearFields_Click"/>
-                <Button x:Name="GetStudent1" Content="Auto Fill" HorizontalAlignment="Left" Margin="825,290,0,0" VerticalAlignment="Top" Click="AutoFill_Click"/>
-                <Button x:Name="DisableAllFields" Content="DisableTest" HorizontalAlignment="Left" Margin="825,320,0,0" VerticalAlignment="Top" Click="DisableAll_Click"/>
-                <Button x:Name="EnableAllFields" Content="EnableTest" HorizontalAlignment="Left" Margin="825,350,0,0" VerticalAlignment="Top" Click="EnableAll_Click"/>
+        <GroupBox x:Name="debugBox">
+            <Grid x:Name="debugGrid">
+                <Button x:Name="ClearFields" Visibility="Hidden" Content="Clear Fields" HorizontalAlignment="Left" Margin="825,260,0,0" VerticalAlignment="Top" Click="ClearFields_Click"/>
+                <Button x:Name="GetStudent1" Visibility="Hidden" Content="Auto Fill" HorizontalAlignment="Left" Margin="825,290,0,0" VerticalAlignment="Top" Click="AutoFill_Click"/>
+                <Button x:Name="DisableAllFields" Visibility="Hidden" Content="DisableTest" HorizontalAlignment="Left" Margin="825,320,0,0" VerticalAlignment="Top" Click="DisableAll_Click"/>
+                <Button x:Name="EnableAllFields" Visibility="Hidden" Content="EnableTest" HorizontalAlignment="Left" Margin="825,350,0,0" VerticalAlignment="Top" Click="EnableAll_Click"/>
                 <Button x:Name="LogOut" Visibility="Hidden" Content="Log Out" HorizontalAlignment="Left" Margin="825,235,0,0" VerticalAlignment="Top" Click="LogOut_Click"/>
                 <Button x:Name="LogIn" Content="Log In" HorizontalAlignment="Left" Margin="825,210,0,0" VerticalAlignment="Top" Click="LogIn_Click"/>
+                <Image Source="C:\Users\nikiz\source\repos\c-sharp-intro\ExpenseIt\watermark.png" Margin="816,121,86,460"></Image>
             </Grid>
         </GroupBox>
     </Grid>
